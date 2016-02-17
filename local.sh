@@ -1,6 +1,6 @@
 #from the source directory.
 #1st parameter unity id, 2nd parameter length of reservation in mins.
-sudo apt-get upgrade
+sudo yum update
 
 python setup.py install
 
