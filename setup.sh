@@ -1,4 +1,13 @@
 #from the source directory.
+
+sudo yum -y update
+sudo yum install python-devel
+sudo yum install gmp-devel
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+sudo python get-pip.py
+rm get-pip.py
+sudo pip install -I pycrypto
+
 cp AutoSpark/Spark_Jobs/lda.zip ~
 cd ../
 mv spark/spark_latest/conf/spark-env.sh.template spark/spark_latest/conf/spark-env.sh
