@@ -27,8 +27,6 @@ echo $1 > user.txt
 
 export ANSIBLE_HOST_KEY_CHECKING=False
 
-sudo apt-get update -y
-
 cd AutoSpark/scripts
 sudo ./setup_machine.sh
 

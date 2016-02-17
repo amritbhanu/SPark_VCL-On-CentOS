@@ -29,7 +29,7 @@ class VCLOpsworks(object):
     def run(self):
 	python_file_path = os.path.dirname(os.getcwd())
 	user_file_path = os.path.join(python_file_path +
-				                    "/Spark_VCL-on-Ubuntu/user.txt")
+				                    "/SPark_VCL-On-CentOS/user.txt")
 	with open(user_file_path, 'r') as f:
     	    for doc in f.readlines():
 		try:
@@ -117,14 +117,14 @@ class VCLOpsworks(object):
 	if (node_type=='master'):
 
 		master_file_path = os.path.join(python_file_path +
-				                    "/Spark_VCL-on-Ubuntu/AutoSpark/Ansible/playbooks/master_file")
+				                    "/SPark_VCL-On-CentOS/AutoSpark/Ansible/playbooks/master_file")
 		master_file = open(master_file_path, "w")
 		master_file.truncate()
 		master_file.write(cluster_info.keys()[0] +"\n")
 		master_file.close()
 		'''if (cluster_info.keys()>1):
 			slave_file_path = os.path.join(python_file_path +
-				                   "/Spark_VCL-on-Ubuntu/AutoSpark/Ansible/playbooks/slave_file")
+				                   "/SPark_VCL-On-CentOS/AutoSpark/Ansible/playbooks/slave_file")
 
 			slave_file = open(slave_file_path, "w")
 			slave_file.truncate()
@@ -136,7 +136,7 @@ class VCLOpsworks(object):
 			slave_file.close()'''
 	elif (node_type=='slave'):
 		slave_file_path = os.path.join(python_file_path +
-				                   "/Spark_VCL-on-Ubuntu/AutoSpark/Ansible/playbooks/slave_file")
+				                   "/SPark_VCL-On-CentOS/AutoSpark/Ansible/playbooks/slave_file")
 
 		slave_file = open(slave_file_path, "w")
 		slave_file.truncate()

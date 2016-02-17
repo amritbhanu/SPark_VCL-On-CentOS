@@ -1,18 +1,17 @@
 # Updates the instances
-sudo apt-get update -y
+sudo yum update
 
 # Install pip
-sudo apt-get install python-pip -y
+
+# Setting up epel-release
+sudo yum install epel-release
 
 # Setting up npm
-sudo apt-get install npm -y
+sudo yum install npm
 
 # Setting up node js
-sudo apt-get install nodejs-legacy -y
+sudo yum install nodejs
 sudo ln -s /usr/bin/nodejs /usr/sbin/node
 
 # Install ansible
-sudo apt-get install software-properties-common -y
-sudo apt-add-repository ppa:ansible/ansible -y
-sudo apt-get update -y
-sudo apt-get install ansible -y
+sudo yum install ansible

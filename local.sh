@@ -1,10 +1,23 @@
 #from the source directory.
 #1st parameter unity id, 2nd parameter length of reservation in mins.
-sudo yum update
-
-python setup.py install
+sudo yum -y update
+sudo yum install python-devel
+sudo yum install gmp-devel
+sudo pip install -I pycrypto
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+sudo python get-pip.py
+rm get-pip.py
+sudo python setup.py install
 
 export ANSIBLE_HOST_KEY_CHECKING=False
+
+wget https://pypi.python.org/packages/source/a/ansible/ansible-1.9.4.tar.gz
+tar -xvf ansible-1.9.4.tar.gz
+cd ansible-1.9.4
+sudo python setup.py install
+cd ..
+rm ansible-1.9.4.tar.gz
+sudo rm -rf ansible-1.9.4
 
 echo $1 > user.txt
 if [ ! -d "ssh_keys" ]; then
@@ -16,7 +29,7 @@ if [ ! -d "ssh_keys" ]; then
 fi
 
 #this will create 1 instance and we will install the packages and whatever is needed for that.
-vcl-opsworks request add --image-id 3630 --node-type master -c 1 -l $2 --playbook main.yml "https://vcl.ncsu.edu/scheduling/index.php?mode=xmlrpccall" "$1@NCSU"
+vcl-opsworks request add --image-id 3685 --node-type master -c 1 -l $2 --playbook main.yml "https://vcl.ncsu.edu/scheduling/index.php?mode=xmlrpccall" "$1@NCSU"
 #it will return a connecting ip address, use that to do ssh.
 
 dir=$(pwd)
@@ -35,4 +48,5 @@ cat ~/.ssh/id_rsa | ssh $1@$val "cat >> ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa"
 #distributed file system
 
 #Sending file to master node.
-scp /home/amrit/GITHUB/Enron/Datasets/SE/jones.txt $1@$val:/home/$1/jones.txt
+scp /home/amrit/Downloads/dataset/jones.txt $1@$val:/home/$1/jones.txt
+scp /home/amrit/Downloads/dataset/cs.txt $1@$val:/home/$1/jones.txt
