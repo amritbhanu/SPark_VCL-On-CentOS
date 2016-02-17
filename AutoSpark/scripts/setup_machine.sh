@@ -14,4 +14,3 @@ sudo yum install nodejs
 sudo ln -s /usr/bin/nodejs /usr/sbin/node
 
 # Install ansible
-sudo yum install ansible
