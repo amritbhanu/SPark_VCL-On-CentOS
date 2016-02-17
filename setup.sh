@@ -1,8 +1,8 @@
 #from the source directory.
 
 sudo yum -y update
-sudo yum install python-devel
-sudo yum install gmp-devel
+sudo yum install python-devel -y
+sudo yum install gmp-devel -y
 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 sudo python get-pip.py
 rm get-pip.py
