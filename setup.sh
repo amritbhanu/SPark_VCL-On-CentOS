@@ -48,5 +48,6 @@ if [ ! -d "node_modules" ]; then
 fi
 
 sudo sh -c "echo \"StrictHostKeyChecking no\" >> /etc/ssh/ssh_config"
+sudo sh -c "echo \" UserKnownHostsFile /dev/null\" >> /etc/ssh/ssh_config"
 
 node autospark-cluster-launcher.js

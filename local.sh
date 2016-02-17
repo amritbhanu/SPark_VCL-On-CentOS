@@ -28,6 +28,9 @@ if [ ! -d "ssh_keys" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
 fi
 
+sudo sh -c "echo \"StrictHostKeyChecking no\" >> /etc/ssh/ssh_config"
+sudo sh -c "echo \" UserKnownHostsFile /dev/null\" >> /etc/ssh/ssh_config"
+
 #this will create 1 instance and we will install the packages and whatever is needed for that.
 vcl-opsworks request add --image-id 3685 --node-type master -c 1 -l $2 --playbook main.yml "https://vcl.ncsu.edu/scheduling/index.php?mode=xmlrpccall" "$1@NCSU"
 #it will return a connecting ip address, use that to do ssh.
