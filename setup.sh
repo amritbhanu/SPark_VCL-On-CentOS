@@ -14,7 +14,6 @@ mv spark/spark_latest/conf/spark-env.sh.template spark/spark_latest/conf/spark-e
 touch spark/spark_latest/conf/slaves
 unzip lda.zip
 rm lda.zip
-cd SPark_VCL-On-CentOS
 wget https://pypi.python.org/packages/source/a/ansible/ansible-1.9.4.tar.gz
 tar -xvf ansible-1.9.4.tar.gz
 cd ansible-1.9.4
@@ -31,6 +30,7 @@ sudo rm -rf ansible-1.9.4
   # Control will enter here if $DIRECTORY doesn't exist.
 #fi
 
+cd SPark_VCL-On-CentOS
 sudo python setup.py install
 echo $1 > user.txt
 
