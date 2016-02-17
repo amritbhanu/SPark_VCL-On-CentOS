@@ -51,7 +51,7 @@ class VCLOpsworks(object):
                     "ansible_ssh_user": user,
                     "ansible_ssh_port": connect_port
                 }
-		command= "sudo ssh-copy-id " +user + "@"+server_ip
+		command= "ssh-copy-id " +user + "@"+server_ip
 		self.execute(command)
 		'''command= "cat ~/.ssh/id_rsa | ssh -t -t " + user + "@"+server_ip + " \"cat >> ~/.ssh/id_rsa\""
 		self.execute(command)
