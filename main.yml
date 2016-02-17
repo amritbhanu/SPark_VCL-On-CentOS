@@ -12,6 +12,14 @@
    - name: Install git
      sudo: true
      yum: name=git state=installed update_cache=true
+
+   - name: Install wget
+     sudo: true
+     yum: name=wget state=installed update_cache=true
+
+   - name: Install unzip
+     sudo: true
+     yum: name=unzip state=installed update_cache=true
      
    - name: Install scala
      sudo: true
