@@ -20,7 +20,7 @@ rm ansible-1.9.4.tar.gz
 sudo rm -rf ansible-1.9.4
 
 echo $1 > user.txt
-if [ ! -d "ssh_keys" ]; then
+if [ ! -d "~/.ssh/id_rsa.pub" ]; then
   ssh-keygen -t rsa
   mkdir ssh_keys
   cp ~/.ssh/id_rsa ssh_keys/id_rsa
